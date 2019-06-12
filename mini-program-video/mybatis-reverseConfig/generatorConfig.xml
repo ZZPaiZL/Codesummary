@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.miniprogram.util.MyMapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3307/mini-program-video"
+                        userId="root"
+                        password="zzp123456">
+        </jdbcConnection>
+
+        <!-- 对应生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="com.miniprogram.pojo" targetProject="src/main/java"/>
+
+		<!-- 对应生成的mapper所在目录 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+		<!-- 配置mapper对应的java映射 -->
+        <javaClientGenerator targetPackage="com.miniprogram.mapper" targetProject="src/main/java" 
+        type="XMLMAPPER"/>
+
+
+
+		<table tableName="mini_users"></table>
+		<table tableName="mini_users_report"></table>
+		<table tableName="mini_videos"></table>
+		 <table tableName="mini_bgm"></table>
+
+    </context>
+</generatorConfiguration>

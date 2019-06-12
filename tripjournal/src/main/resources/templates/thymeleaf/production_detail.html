@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- saved from url=(0831)http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&tfamily=&dfamily=&blankclose=0&arrowstyle=0&showthumbs=0&style=&autoplay=0&playspeed=3&imagesize=100&imageheight=100&stopbutton=&thumbsposition=&tsize=16&tcolor=%23fff&dsize=14&dcolor=%23fff&default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&time=0.5415921577637937 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+        <title>图片展示</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/panGallery_buttons_bottom.css">
+        <!--[if lte IE 8 ]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+        <link rel="stylesheet" type="text/css" href="../static/css/jquery.jscrollpane.css" media="all">
+		<style>
+		body{
+			background-color:rgba(51,51,51,1);
+		}
+		.panInner .title{
+			color:#fff;
+			font-size:16px;
+					}
+
+		
+		.panInner .desc{
+			color:#fff;
+			font-size:14px;
+					}
+		</style>
+        
+        <script type="text/javascript" src="../static/jquery/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.address.js"></script>
+		<script type="text/javascript" src="../static/jquery/jquery.cj-swipe.js"></script>
+		<script type="text/javascript" src="../static/jquery/jquery.func.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.videoGallery.min.js"></script>
+        <script type="text/javascript" src="../static/jquery/soundmanager2-nodebug-jsmin.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.apPlaylistManager.min.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.apTextScroller.min.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.html5audio.min.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.mousewheel.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.jscrollpane.min.js"></script>
+        <script type="text/javascript" src="../static/jquery/jquery.panGallery.min.js"></script>
+         <script type="text/javascript" src="../static/js/production_detail.js"></script>
+		<script type="text/javascript">
+			$(function(){
+					 document.getElementById("test").focus();
+					$(document).keydown(function (event) {
+						switch (event.which) {
+							case 37: jQuery(".image_backward").click(); break;
+							case 39: jQuery(".image_forward").click(); break;
+							case 27: jQuery(".image_close").click();break;
+							default: break;
+						}
+					});
+
+				
+					
+
+					
+			
+			})
+		/* GALLERY CALLBACKS */
+			function panGalleryReady(){
+				//function called when component is ready to receive public method calls
+				//console.log('panGalleryReady');
+				
+				$("#componentWrapper .panHolder").css("height","100%");
+				setTimeout(function(){$('#componentWrapper .panHolder').css("opacity",1);},600);
+			}
+			function beforeSlideChange(slideNum){
+				//function called before slide change (plus slide number returned, counting starts from 0)
+				//console.log('beforeSlideChange, slideNum = ', slideNum);
+			}
+			function afterSlideChange(slideNum){
+				//function called after slide change (plus slide number returned, counting starts from 0)
+				//console.log('afterSlideChange, slideNum = ', slideNum);
+							}
+			/* END GALLERY CALLBACKS */
+			
+
+			var ap_settings = {
+				/* playerHolder: dom elements which holds the whole player */
+				playerHolder: '.audioPlayer',
+				/* playlistHolder: dom elements which holds list of playlists */
+				playlistHolder: '#playlist_list',
+				/* activePlaylist: set active playlist that will be loaded on beginning. 
+				Leave empty for none like this: activePlaylist: '' */
+				activePlaylist: '#audio_playlist1',
+				/* activeItem: active item to start with when playlist is loaded (0 = first, 1 = second, 2 = third... -1 = none) */
+				activeItem: 1,
+				/* sound_id: unique string for soundmanager sound id (if multiple player instances were used, then strings need to be different) */
+				sound_id: 'sound_id1',
+	
+				/*defaultVolume: 0-1 (Irrelevant on ios mobile) */
+				defaultVolume:0.5,
+				/*autoPlay: true/false (false on mobile by default) */
+				autoPlay:true,
+				/*autoLoad: true/false (auto start sound load) */
+				autoLoad:true,
+				/*randomPlay: true/false */
+				randomPlay:false,
+				/*loopingOn: true/false (loop on the end of the playlist) */
+				loopingOn:true,
+				
+				/* autoSetSongTitle: true/false. Auto set song title in 'player_mediaName'. */
+				autoSetSongTitle: true,
+				
+				/* useSongNameScroll: true/false. Use song name scrolling. */
+				useSongNameScroll: true,
+				/* scrollSpeed: speed of the scroll (number higher than zero). */
+				scrollSpeed: 1,
+				/* scrollSeparator: String to append between scrolling song name. */
+				scrollSeparator: '&nbsp;&#42;&#42;&#42;&nbsp;',
+				
+				/* buttonsUrl: url of the buttons for normal and rollover state */
+				buttonsUrl: {prev: 'media/data/audio_icons/prev.png', prevOn: 'media/data/audio_icons/prev_on.png', 
+							 next: 'media/data/audio_icons/next.png', nextOn: 'media/data/audio_icons/next_on.png', 
+							 pause: 'media/data/audio_icons/pause.png', pauseOn: 'media/data/audio_icons/pause_on.png',
+							 play: 'media/data/audio_icons/play.png', playOn: 'media/data/audio_icons/play_on.png',
+							 volume: 'media/data/audio_icons/volume.png', volumeOn: 'media/data/audio_icons/volume_on.png', 
+							 mute: 'media/data/audio_icons/mute.png', muteOn: 'media/data/audio_icons/mute_on.png'},
+				/* useAlertMessaging: Alert error messages to user (true / false). */
+				useAlertMessaging: true,
+				/* autoOpenAudioPlayer: true / false */
+				autoOpenAudioPlayer: false
+			};
+			
+			/* END AUDIO PLAYER SETTINGS */
+			var global_imagesize = 100;
+			var global_imageheight = 100;
+			var global_style = 0;
+			/* GALLERY SETTINGS */
+			var pg_settings = {
+				/* componentHolder: dom element which holds the whole component */
+				componentHolder: '#componentWrapper',
+				/* slideshowDelay: in seconds */
+				slideshowDelay: 3,
+				/* slideshowOn: true, false */
+				slideshowOn:true,
+				
+				/* DEEPLINKING SETTINGS */
+				/* useDeeplink: true, false */
+				useDeeplink:false,
+				/* startUrl: deeplink start url, enter category div 'data-address'/li 'data-address'. Leave empty for none like this: startUrl:'' -> no category loaded, start with menu. */
+				startUrl: 'category_one/image1',
+				
+				/* NO DEEPLINKING SETTINGS */
+				/* activeCategory: active category to start with (counting starts from zero, 0=first category, 1=second category... etc) */
+				activeCategory:0,
+				
+				/*randomPlay: image random play, true/false */
+				randomPlay:false,
+				/* thumbScale: thumb rollover scale (1 = no scale, original size). Enter number 1 or above. */
+				thumbScale: 1.5,
+				/* autoOpenDescription: true/false (auto open description if exist when image is loaded, default false on mobile) */
+				autoOpenDescription:false,
+				/* animatePan: true/false (animate mouse pan on image) */
+				animatePan:true,
+				/* imageStartScale: original/scaled. When image loads, if its original size is bigger than component size, set this to 'scaled' and it will be scaled down (proportionally) to component size. Otherwise if 'original', image size will be in its full size, default 'scaled' on mobile. */
+				imageStartScale:'scaled',
+				
+				/* defaultGallerySide: bottom/right/autoselect (default thumbnail position) */
+				defaultGallerySide:'bottom',
+				/* flipGallerySides: true/false (flip thumbnail position) */
+				flipGallerySides:false,
+				/* scrollType: buttons / scroll  */
+				scrollType: 'buttons',
+				
+				/* AUTO CREATE IMAGES FROM FOLDER SETTINGS */
+				/* thumbWidth: width of the thumbnails */
+				thumbWidth:80,
+				/* thumbHeight: height of the thumbnails */
+				thumbHeight:50,
+				/* menuThumbPath: path to the menu thumbnails (from the root) */
+				menuThumbPath:'media/menu/',
+				
+				/* VIDEO SETTINGS */
+				/* useVideo: true/false */
+				useVideo: false,
+				/* videoPosition: left, center */
+				videoPosition: 'center',
+				/* videoVolume: default volume for video (0-1) */
+				videoVolume: 0.5,
+				/* videoAutoPlay: true/false (Defaults to false on mobile) */
+				videoAutoPlay: false,
+				/* includeVideoInSlideshow: true/false (on video end resume slideshow, only if slideshow was playing before video request) */
+				includeVideoInSlideshow: true,
+				/* videoLoop: true/false (only if includeVideoInSlideshow = false) */
+				videoLoop: false,
+				/*playerBgOpacity: background opacity behind the video player when its opened (0-1) */
+				playerBgOpacity:0.8,
+				/*playerHolder: dom elements which holds the whole player */
+				playerHolder:'#componentWrapper .videoPlayer',
+				/*flashHolder: id of the flash movie */
+				flashHolder:'#flashPreview',
+				/* useYoutubeHighestQuality: true/false (use highest available quality for youtube video, if false, then it set to default)  */
+				useYoutubeHighestQuality:false,
+				
+				/* AUDIO SETTINGS */
+				/* useAudio: true/false */
+				useAudio: false
+				
+			};
+			/* END GALLERY SETTINGS */
+			
+			//gallery instances
+			var gallery1;  
+						jQuery(document).ready(function($) {
+				if(top.allow_copy_content){
+					//Disable cut copy paste
+					jQuery('body').bind('cut copy paste', function (e) {
+						e.preventDefault();
+						alert("对不起，本站不允许复制。\nSorry, we do not support copy.\n\n");
+					});
+				   
+					//Disable mouse right click
+					jQuery("body").on("contextmenu",function(e){
+						return false;
+					});
+				}
+
+				if(top.iframeWin){
+					top.iframeWin.jQuery("a.qfy_thickbox").each(function(i){
+						if( !jQuery(this).parent().hasClass("clone")){
+        					var href = jQuery(this).attr("href");
+        					//console.log(herf);
+        					if(href){
+            					var tmp =  jQuery(".gallerys_div [data-imagePath='"+href+"'][data-thumbPath='"+thumbPath+"']").length;
+            					if( tmp==0){
+            						var thumbPath = jQuery(this).attr("thumbPath");
+            						
+            						//alert(href+":"+thumbPath);
+            						
+            						if(!thumbPath) 	thumbPath = href;
+            						var desc = jQuery(this).find("img").attr("description");
+            						if(!desc) desc="";
+            						var title = jQuery(this).find("img").attr("data-title");
+            						if(!title) title="";
+            						//jQuery(".gallerys_div").append('<li data-address="image'+(i+1)+'" data-imagePath="'+href+'" data-thumbPath="'+thumbPath+'"  data-description="'+desc+'" data-title="'+title+'" />');
+            					}
+        					}
+						}
+					})
+					$("#test").after('<div onclick="setGallery()" style="opacity: 1; visibility: visible;background-color: #84c137;border: 0 solid transparent;border-radius: 3px; position: absolute;right: 0;top:50px;width: 80px;z-index: 1;color:#fff;padding:7px 7px 7px 25px; " class="controls-element"><a href="#" style="color:#fff;" class="control-btn vc-element-name"><span >设置相册</span></a></div>');
+				}else{
+				parent.jQuery("a.qfy_thickbox").each(function(i){
+					alert("走parent");
+					if(jQuery(this).find("img").length>0 && !jQuery(this).parent().hasClass("clone")){
+						
+						var href = jQuery(this).attr("href");
+    						if(href && jQuery(this).find("img").attr("src")  ){
+    							var tmp =  jQuery(".gallerys_div [data-imagePath='"+href+"'][data-thumbPath='"+thumbPath+"']").length;
+        						if( tmp==0){
+        							var thumbPath = jQuery(this).attr("thumbPath");
+        							if(!thumbPath) 	thumbPath = href;
+        							var desc = jQuery(this).find("img").attr("description");
+        							if(!desc) desc="";
+        							var title = jQuery(this).find("img").attr("data-title");
+        							if(!title) title="";
+        							jQuery(".gallerys_div").append('<li data-address="image'+(i+1)+'" data-imagePath="'+href+'" data-thumbPath="'+thumbPath+'" data-description="'+desc+'" data-title="'+title+'" />');
+        						}
+    						}
+						}
+					})
+					
+				}
+				/* var default_img = 'https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg'; */
+				var default_img ='';
+				jQuery(".gallerys_div li").each(function(i){
+						var src = jQuery(this).attr("data-thumbPath");
+						if(src.indexOf(default_img)>-1){
+							pg_settings.activeItem = i;
+						}
+						
+			   });
+			 
+				jsReady = true;
+				
+				gallery1 = $('#componentWrapper').panGallery(pg_settings, ap_settings);
+				
+				pg_settings = null;
+				ap_settings = null;
+							});
+		
+		function closeGallary(){
+			top.jQuery(".qfy_gallerys").animate({height:"0"},function(){
+				jQuery(this).remove()
+			});
+			
+		}
+		function setGallery(){
+			if(top.jQuery("body#site-body").length>00){
+				closeGallary();
+				top.setGallery();
+			}
+		}
+        </script>
+	
+  </head>
+  <body style="">  
+		
+    	<div id="componentWrapper">
+			<input type="text" name="test" id="test" style="height:0;width:0;" value="222">
+			
+            <!-- image pan holder  -->
+            <div class="panHolder" style="opacity: 1; height: 555px; width: 1343px;"><div class="panInner" style="text-align: center; vertical-align: middle; position: relative; opacity: 1; overflow: hidden; width: 1140px; height: 555px; left: 101.5px; top: 0px; cursor: default;"><img src="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS85MjBjZGVjNTNjODg2NDBkYWMyODNkNjM2N2IwZjEwZi5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" style="max-width:100%;max-height:100%;"></div></div>
+            
+            <!-- image preloader -->
+            <div class="imagePreloader" style="display: none; opacity: 0; margin-left: -25px; margin-top: -51.5px;"></div>
+             
+            <!-- thumb scroll holder -->
+            <div class="thumbWrapper" style="top: auto; left: 433px; height: 79.5px; width: 1223px;">
+            
+                 <div class="thumbHolder" style="left: 0px; top: 0px; padding-left: 0px; padding-top: 26.5px; height: 53px; width: 848px;">
+                 <!-- List your categories in here -->
+                      <div data-type="html" class="category" data-address="category_one" data-menuthumbpath="media/menu/01.jpg" data-thumbwidth="53" data-thumbheight="53" data-title="Category title number one" style="display: block;">
+
+
+
+   <ul class="gallerys_div">
+                        
+                        
+<!-- <li data-address='image1' data-imagePath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" data-thumbPath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg"  /> -->
+<li id="zz" data-address="image1" 
+data-imagepath="../static/imgs/aa.jpg" 
+ data-thumbpath="../static/imgs/aa.jpg" 
+ data-description="" data-title="作品11">
+ </li>
+ 
+ <li data-address="image2" data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS9hM2UyOTRiYWEzZTY1YmM5OTE3MDFhNWMzY2JmMDQ2MS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS9hM2UyOTRiYWEzZTY1YmM5OTE3MDFhNWMzY2JmMDQ2MS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" data-description="" 
+ data-title="作品10">
+ </li>
+ 
+ <li data-address="image3" data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS85MjBjZGVjNTNjODg2NDBkYWMyODNkNjM2N2IwZjEwZi5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS85MjBjZGVjNTNjODg2NDBkYWMyODNkNjM2N2IwZjEwZi0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-description="" data-title="作品09">
+ </li>
+ 
+ <li data-address="image4" 
+ data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS8zOWJmNDVmNWRlYzMzNmIwZjNkOWQyMjk2ZWEyYTVjYy5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS8zOWJmNDVmNWRlYzMzNmIwZjNkOWQyMjk2ZWEyYTVjYy0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-description="" data-title="作品08">
+ </li>
+ 
+ <li data-address="image5" 
+ data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS84ODY4NGRkYzYxMDZhODdmNjRmMjdhMmU1OTEwZjA4Ni5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS84ODY4NGRkYzYxMDZhODdmNjRmMjdhMmU1OTEwZjA4Ni0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-description="" data-title="作品01">
+ </li>
+ 
+ <li data-address="image6" 
+ data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83MjcyNjllNGI2YWZkZDNjOWNiODA1NGUzZmExYzk4NC5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83MjcyNjllNGI2YWZkZDNjOWNiODA1NGUzZmExYzk4NC0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-description="" data-title="作品02">
+ </li>
+ 
+ <li data-address="image7" 
+ data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS9jNTQ3ZTQwOTgwMWMxMzk2MzY0NTEyNjdiYzNhY2UzYS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS9jNTQ3ZTQwOTgwMWMxMzk2MzY0NTEyNjdiYzNhY2UzYS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-description="" data-title="作品03">
+ </li>
+ 
+ <li data-address="image8" 
+ data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS9mYjc1NzMzMTgwMmI3MzczMDNlMzgyMzMzZTVlMWJkMi5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS9mYjc1NzMzMTgwMmI3MzczMDNlMzgyMzMzZTVlMWJkMi0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-description="" data-title="作品04">
+ </li>
+
+
+<!-- 循环 -->
+
+
+ <li data-address="image9" data-imagepath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS80YjVjZWNiNGRlZDk1MTgzYjdlNmMzYmEyYTE3NTYwYy5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-thumbpath="https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS80YjVjZWNiNGRlZDk1MTgzYjdlNmMzYmEyYTE3NTYwYy0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" 
+ data-description="" data-title="作品05" >
+ </li>
+ 
+ </ul>
+ 
+ </div>
+                   <!--  <div class="category" data-type='html' data-address="category_two" data-menuThumbPath="media/menu/02.jpg" data-thumbWidth="80" data-thumbHeight="53" data-title="Category title number two" >
+                        <ul>
+                            <li data-address='image4' data-imagePath="media/images/category2/04.jpg" data-thumbPath="media/images/category2/thumbs/04.jpg"  />
+                            <li data-address='image19' data-imagePath="media/images/category2/19.jpg" data-thumbPath="media/images/category2/thumbs/19.jpg" />
+                        </ul>
+                      </div> -->
+                   
+<!--  <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="0" 
+ src="../static/imgs/aa.jpg" style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: pointer;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="1" src="../static/imgs/bb.jpg" 
+ style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: pointer;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="2" src="../static/imgs/cc.jpg" 
+ style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: default;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="3" src="../static/imgs/aa.jpg" 
+ style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: pointer;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="4" src="../static/imgs/bb.jpg" 
+ style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: pointer;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="5" src="../static/imgs/cc.jpg" style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: pointer;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="6" src="../static/imgs/cc.jpg" style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: pointer;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="http://569c4389c5f41.t74.qifeiye.com/FeiEditor/bitSite/gallerys/?bgcolor=rgba(51%2C51%2C51%2C1)&amp;tfamily=&amp;dfamily=&amp;blankclose=0&amp;arrowstyle=0&amp;showthumbs=0&amp;style=&amp;autoplay=0&amp;playspeed=3&amp;imagesize=100&amp;imageheight=100&amp;stopbutton=&amp;thumbsposition=&amp;tsize=16&amp;tcolor=%23fff&amp;dsize=14&amp;dcolor=%23fff&amp;default_img=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS5qcGc_p_p100_p_2FYWktbm8tY2FjaGU9dHJ1ZQ_p_p100_p_3D_p_p100_p_3D.jpg&amp;thumbPath=https://ccdn.goodq.top/caches/818410651cb7fa40c556880a8bf592aa/aHR0cDovLzU2OWM0Mzg5YzVmNDEudDc0LnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS83YmYxODhkYmM1YTI5MWE0NTA5ODAxZGVhMDg3MGJmOS0xNTB4MTUwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg&amp;time=0.5415921577637937#">
+ <img data-id="7" src="../static/imgs/bb.jpg" style="display: block; width: 53px; height: 53px; opacity: 1; margin-top: 0px; cursor: pointer;">
+ </a>
+ </li>
+ 
+ <li class="thumbs">
+ <a href="/vlog/productionDetail">
+ <img data-id="8" src="../static/imgs/aa.jpg">
+ </a>
+ </li>
+ !-->
+ </div>
+ </div>
+             
+             <!-- thumbs left -->
+             <div class="thumb_backward" 
+             style="cursor: pointer; height: 53px; display: none; opacity: 1;">
+             </div>
+             <!-- thumbs right -->
+             <div class="thumb_forward" 
+             style="cursor: pointer; height: 53px; display: none; opacity: 1;">
+             </div>
+             <!-- image backward -->
+                            	
+               <div class="image_backward" 
+                 style="opacity: 1; cursor: pointer; top: 257.5px; display: block;">
+                <img src="../static/imgs/image_backward.png" alt="" width="40" height="40">
+               </div>
+                            	
+                 <!-- image forward -->
+                 
+                 <div class="image_forward" 
+                 style="opacity: 1; cursor: pointer; top: 257.5px; display: block;">
+                 <img src="../static/imgs/image_forward.png" alt="" width="40" height="40">
+                 </div>
+                 
+                 <!-- toggle image size -->
+                 
+             			 <div class="image_close" 
+             			 style="cursor:pointer;position:absolute;top:0px;right:0;" onclick="closeGallary()">
+             			 <img src="../static/imgs/close.png" alt="" width="40" height="40">
+             			 </div>
+             			 
+             			 
+              <!-- <div class="image_sizeToggle"><img src="media/data/gallery_icons/image_toggle_plus.png" alt="" width="40" height="40" /></div>-->
+             
+			  
+			     <!-- holder for the info (description). -->
+             <div class="info_wrapper" style="opacity: 1;">
+             	<!-- info_bg: transparent background for stopping mouse events going below on image while scrolling info. -->
+             	<div class="info_bg" style="display: none;"></div>
+                <!--<div class="info_toggle"><img src="media/data/gallery_icons/info_toggle.png" alt="" width="40" height="40" /></div> -->
+                <div class="info_holderMasker" style="height: 0px;">
+                <div class="info_holder"></div></div>
+             </div>
+             
+             <!-- menu toggle and slideshow toggle button -->
+             <div class="galleryControls_1icon" style="margin-left: -20px; opacity: 1; display: block;">
+                <!-- menu toggle (btn is automatically removed if only single category in gallery) -->
+                
+                <!-- slideshow toggle -->
+                
+				                 <div class="slideshow_toggle" style="cursor: pointer;">
+				                 <img src="../static/imgs/slideshow_pause.png" alt="" width="40" height="40">
+				                 </div>
+				                 
+				                  <!-- fullscreen toggle (btn is automatically removed if browser doesnt support fullscreen) 
+                <div class="fullscreen_toggle"><img src="media/data/gallery_icons/fullscreen_enter.png" alt="" width="40" height="40" /></div>-->
+             </div>
+            
+             <!-- big play for video player toggle -->
+               <!--<div class="player_bigPlay"><img src='media/data/video_icons/big_play.png' width='76' height='76' alt=''/></div>-->
+            
+             <!-- category menu -->
+             
+             
+             <!-- audio player -->
+			
+              
+			
+              <!-- darken area behind the video player -->
+              
+              
+              <!-- video player -->
+              
+             <!-- List of audio playlists -->
+             
+        </div>
+		
+      
+</body></html>
